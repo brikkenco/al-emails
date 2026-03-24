@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aqua Libra — Email Template Index</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #E8EDF3;
+      color: #0D4F92;
+      padding: 40px 20px 80px;
+      min-height: 100vh;
+    }
+
+    .index-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .index-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .index-header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 24px;
+    }
+
+    .index-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0D4F92;
+      margin-bottom: 8px;
+    }
+
+    .index-header p {
+      font-size: 15px;
+      color: #0D4F92;
+      opacity: 0.65;
+      font-weight: 500;
+    }
+
+    .category-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0D4F92;
+      opacity: 0.5;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    .template-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+
+    .template-card {
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+      border: 1px solid rgba(13, 79, 146, 0.08);
+    }
+
+    .template-card:hover {
+      box-shadow: 0 4px 16px rgba(13, 79, 146, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .card-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-number {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0D4F92;
+      opacity: 0.3;
+      flex-shrink: 0;
+      width: 24px;
+      text-align: right;
+    }
+
+    .card-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0D4F92;
+      margin-bottom: 3px;
+    }
+
+    .card-description {
+      font-size: 13px;
+      color: #0D4F92;
+      opacity: 0.55;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .card-badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .badge-alert {
+      background-color: #FFF3E0;
+      color: #E65100;
+    }
+
+    .badge-security {
+      background-color: #E8EAF6;
+      color: #283593;
+    }
+
+    .badge-welcome {
+      background-color: #E0F2F1;
+      color: #00695C;
+    }
+
+    .badge-billing {
+      background-color: #F3E5F5;
+      color: #6A1B9A;
+    }
+
+    .card-arrow {
+      font-size: 18px;
+      color: #0D4F92;
+      opacity: 0.25;
+      transition: opacity 0.15s ease;
+    }
+
+    .template-card:hover .card-arrow {
+      opacity: 0.6;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 13px;
+      color: #0D4F92;
+      opacity: 0.4;
+      font-weight: 500;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 24px 12px 60px; }
+      .index-header { margin-bottom: 32px; }
+      .index-header h1 { font-size: 22px; }
+      .template-card { padding: 16px 18px; }
+      .card-description { display: none; }
+      .card-badge { font-size: 10px; padding: 3px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="index-container">
+
+    <!-- HEADER -->
+    <div class="index-header">
+      <img src="/assets/aqualibra-logo.svg" alt="Aqua Libra">
+      <h1>Email Template Index</h1>
+      <p>12 production-ready email templates for review and QA</p>
+    </div>
+
+    <!-- SYSTEM ALERTS -->
+    <div class="category-label">System Alerts</div>
+    <div class="template-grid">
+
+      <a href="/emails/still-water-pump-failed.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">01</span>
+          <div class="card-info">
+            <div class="card-title">Still water pump has failed</div>
+            <div class="card-description">Notifies customer of pump failure with backup pump confirmation</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/waste-overflow.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">04</span>
+          <div class="card-info">
+            <div class="card-title">Waste overflow</div>
+            <div class="card-description">Alerts that the waste container is full and needs emptying</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/cartridge-empty.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">05</span>
+          <div class="card-info">
+            <div class="card-title">Cartridge empty</div>
+            <div class="card-description">Notifies that a cartridge is empty and needs replacing</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/cartridge-running-low.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">06</span>
+          <div class="card-info">
+            <div class="card-title">Cartridge running low</div>
+            <div class="card-description">Warning that a cartridge has reached 10% capacity</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/cartridge-expired.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">07</span>
+          <div class="card-info">
+            <div class="card-title">Cartridge expired</div>
+            <div class="card-description">Notifies that a cartridge has expired and needs attention</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/co2-running-low.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">08</span>
+          <div class="card-info">
+            <div class="card-title">CO2 running low</div>
+            <div class="card-description">Warns that CO2 level is low and replacement should be arranged</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/co2-empty.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">09</span>
+          <div class="card-info">
+            <div class="card-title">CO2 empty</div>
+            <div class="card-description">Notifies that CO2 supply is empty, sparkling water unavailable</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/leak-detector-activated.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">10</span>
+          <div class="card-info">
+            <div class="card-title">Leak detector activated</div>
+            <div class="card-description">Urgent alert that the leak detector has been triggered</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-alert">Alert</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- SECURITY -->
+    <div class="category-label">Security</div>
+    <div class="template-grid">
+
+      <a href="/emails/login-verification.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">02</span>
+          <div class="card-info">
+            <div class="card-title">Login verification</div>
+            <div class="card-description">Sends a one-time verification code for account sign-in</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-security">Security</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="/emails/password-reset.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">11</span>
+          <div class="card-info">
+            <div class="card-title">Password reset</div>
+            <div class="card-description">Provides a secure link to reset the account password</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-security">Security</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- WELCOME -->
+    <div class="category-label">Onboarding</div>
+    <div class="template-grid">
+
+      <a href="/emails/welcome-to-aqua-libra.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">03</span>
+          <div class="card-info">
+            <div class="card-title">Welcome to Aqua Libra</div>
+            <div class="card-description">Welcomes the user and provides portal setup link</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-welcome">Welcome</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- BILLING -->
+    <div class="category-label">Billing</div>
+    <div class="template-grid">
+
+      <a href="/emails/invoice.html" class="template-card">
+        <div class="card-left">
+          <span class="card-number">12</span>
+          <div class="card-info">
+            <div class="card-title">Invoice email</div>
+            <div class="card-description">Sends monthly invoice with PDF attachment and order reference</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="card-badge badge-billing">Billing</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="footer-note">
+      Aqua Libra Email System &middot; 12 templates &middot; Preview build
+    </div>
+
+  </div>
+
+</body>
+</html>

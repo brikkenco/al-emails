@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+  <title>System Alert — Aqua Libra</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <style>
+    /*
+    ========================================================
+    AQUA LIBRA — EMAIL DESIGN TOKENS
+    ========================================================
+    Brand Colours:
+      Primary Blue:         #0D4F92
+      Header Banner:        #C5DBFB
+      Outer Background:     #E8EDF3
+      Card Background:      #FFFFFF
+      Divider:              #E0E5EB  (rgba(13,79,146,0.1) on white)
+
+    Typography:
+      Font Stack:           Sofia Pro, Segoe UI, Helvetica Neue, Arial, sans-serif
+      Body:                 16px / 1.4, Medium
+      Support:              14px / 1.4, Medium
+      Footer (outer):       12px / 1.5, Medium
+      Buttons:              16px, Semi Bold, uppercase
+      Bold labels:          Bold weight
+
+    Layout:
+      Email width:          560px
+      Content width:        440px (60px padding each side)
+      Mobile padding:       24px each side
+    ========================================================
+    */
+
+    /* === RESET === */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    table { border-collapse: collapse !important; }
+    body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+    /* Fix link colours in Apple Mail, Gmail, Outlook.com */
+    a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+    u + #body a { color: inherit; text-decoration: none; font-size: inherit; font-family: inherit; font-weight: inherit; line-height: inherit; }
+    #MessageViewBody a { color: inherit; text-decoration: none; font-size: inherit; font-family: inherit; font-weight: inherit; line-height: inherit; }
+
+    /* === BUTTON HOVER === */
+    .button-pill:hover {
+      background-color: #0D4F92 !important;
+      color: #FFFFFF !important;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* === RESPONSIVE === */
+    @media only screen and (max-width: 620px) {
+      .email-container {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .email-card {
+        width: 100% !important;
+      }
+      .email-card-inner {
+        padding: 40px 24px 40px 24px !important;
+      }
+      .header-banner {
+        width: 100% !important;
+        height: 140px !important;
+      }
+      .header-logo {
+        width: 110px !important;
+      }
+      .content-width {
+        width: 100% !important;
+      }
+      /* Stack the 3 support buttons vertically on mobile */
+      .button-row,
+      .button-row tbody,
+      .button-row tr {
+        display: block !important;
+        width: 100% !important;
+      }
+      .button-cell,
+      .button-cell-last {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 0 12px 0 !important;
+      }
+      .button-cell-last {
+        padding-bottom: 0 !important;
+      }
+      .button-cell table,
+      .button-cell-last table,
+      .button-cell table tbody,
+      .button-cell-last table tbody,
+      .button-cell table tr,
+      .button-cell-last table tr,
+      .button-cell table td,
+      .button-cell-last table td {
+        display: block !important;
+        width: 100% !important;
+      }
+      .button-pill {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        padding: 14px 0 !important;
+      }
+      .footer-outer {
+        padding: 20px 24px 40px 24px !important;
+      }
+    }
+  </style>
+</head>
+
+<!--
+  ========================================================
+  AQUA LIBRA — SYSTEM NOTIFICATION EMAIL
+  ========================================================
+  Template type:  System alert / hardware notification
+  Description:    Notifies the customer of a system event
+                  (e.g. pump failure, cartridge change needed)
+                  and provides contact options for support.
+
+  PLACEHOLDERS — find and replace these before sending:
+    {{RECIPIENT_NAME}}        Customer's name
+    {{ALERT_MESSAGE}}         Primary alert description
+    {{FOLLOWUP_MESSAGE}}      What happened automatically
+    {{ACTION_MESSAGE}}        What the customer should do
+    {{LOCATION}}              Site address
+    {{SERIAL_NUMBER}}         Machine serial number
+    {{INSTALL_DATE}}          Date the system was installed
+    {{LOGO_URL}}              URL to the Aqua Libra logo PNG
+    {{EMAIL_US_URL}}          Link for the Email Us button
+    {{WEB_FORM_URL}}          Link for the Web Form button
+    {{WHATSAPP_URL}}          Link for the WhatsApp button
+    {{PREHEADER_TEXT}}        Inbox preview text
+  ========================================================
+-->
+
+<body id="body" style="margin: 0; padding: 0; word-spacing: normal; background-color: #E8EDF3;">
+  <div role="article" aria-roledescription="email" aria-label="System Alert — Aqua Libra" lang="en" style="font-size: 16px; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; background-color: #E8EDF3;">
+
+    <!-- VISUALLY HIDDEN PREHEADER TEXT -->
+    <div style="display: none; max-height: 0; overflow: hidden; mso-hide: all;" aria-hidden="true">
+      {{PREHEADER_TEXT}}
+      &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+    </div>
+
+    <!-- ============================
+         OUTER WRAPPER
+         ============================ -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #E8EDF3;">
+      <tr>
+        <td align="center" valign="top" style="padding: 0;">
+
+          <!-- EMAIL CONTAINER — 560px max -->
+          <table role="presentation" class="email-container" width="560" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto; max-width: 560px;">
+
+            <!-- ============================
+                 HEADER BANNER + LOGO
+                 ============================ -->
+            <tr>
+              <td class="header-banner" align="center" valign="middle" style="background-color: #C5DBFB; height: 184px; padding: 0;">
+                <img
+                  class="header-logo"
+                  src="{{LOGO_URL}}"
+                  alt="Aqua Libra"
+                  width="135"
+                  style="display: block; width: 135px; height: auto; border: 0;"
+                />
+              </td>
+            </tr>
+
+            <!-- ============================
+                 MAIN WHITE CARD
+                 ============================ -->
+            <tr>
+              <td class="email-card" style="background-color: #FFFFFF;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td class="email-card-inner" style="padding: 60px 60px 60px 60px;">
+
+                      <!-- ========================
+                           BODY CONTENT
+                           ======================== -->
+
+                      <!-- Greeting -->
+                      <p style="margin: 0 0 20px 0; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; font-weight: 500;">
+                        Hello {{RECIPIENT_NAME}},
+                      </p>
+
+                      <!-- Alert message -->
+                      <p style="margin: 0 0 20px 0; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; font-weight: 500;">
+                        {{ALERT_MESSAGE}}
+                      </p>
+
+                      <!-- Follow-up / automatic action -->
+                      <p style="margin: 0 0 20px 0; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; font-weight: 500;">
+                        {{FOLLOWUP_MESSAGE}}
+                      </p>
+
+                      <!-- Action required -->
+                      <p style="margin: 0 0 20px 0; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; font-weight: 500;">
+                        {{ACTION_MESSAGE}}
+                      </p>
+
+                      <!-- System details (bold labels) -->
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 0 0;">
+                        <tr>
+                          <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; padding: 0 0 2px 0;">
+                            <strong style="font-weight: 700;">Location:</strong>
+                            <span style="font-weight: 500;">{{LOCATION}}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; padding: 0 0 2px 0;">
+                            <strong style="font-weight: 700;">Serial number:</strong>
+                            <span style="font-weight: 500;">{{SERIAL_NUMBER}}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.4; color: #0D4F92; padding: 0;">
+                            <strong style="font-weight: 700;">Date installed:</strong>
+                            <span style="font-weight: 500;">{{INSTALL_DATE}}</span>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <!-- Sign-off -->
+                      <p style="margin: 40px 0 0 0; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.25; color: #0D4F92; font-weight: 500;">
+                        Thank you,<br>
+                        The Aqua Libra Team
+                      </p>
+
+                      <!-- ========================
+                           DIVIDER 1
+                           ======================== -->
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 40px;">
+                        <tr>
+                          <td style="border-top: 1px solid #E0E5EB; font-size: 0; line-height: 0;" height="1">&nbsp;</td>
+                        </tr>
+                      </table>
+
+                      <!-- ========================
+                           SUPPORT SECTION
+                           ======================== -->
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 40px;">
+                        <tr>
+                          <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #0D4F92; font-weight: 500; padding-bottom: 16px;">
+                            If you need support or have any questions, please contact us through your Flavour Tap WhatsApp group.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0;">
+
+                            <!-- 3-BUTTON ROW (stacks on mobile) -->
+                            <!--[if mso]>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <td width="136" valign="top">
+                            <![endif]-->
+
+                            <table role="presentation" class="button-row" width="100%" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <!-- EMAIL US -->
+                                <td class="button-cell" width="33.33%" valign="top" style="padding: 0 8px 0 0;">
+                                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                      <td align="center">
+                                        <a href="{{EMAIL_US_URL}}" target="_blank" class="button-pill" style="display: inline-block; width: 100%; max-width: 100%; padding: 11px 0; border: 2px solid #0D4F92; border-radius: 100px; background-color: #FFFFFF; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 600; color: #0D4F92; text-decoration: none; text-align: center; text-transform: uppercase; letter-spacing: 0.02em; box-sizing: border-box; -webkit-text-size-adjust: none;">
+                                          EMAIL US
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+
+                                <!-- WEB FORM -->
+                                <td class="button-cell" width="33.33%" valign="top" style="padding: 0 8px;">
+                                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                      <td align="center">
+                                        <a href="{{WEB_FORM_URL}}" target="_blank" class="button-pill" style="display: inline-block; width: 100%; max-width: 100%; padding: 11px 0; border: 2px solid #0D4F92; border-radius: 100px; background-color: #FFFFFF; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 600; color: #0D4F92; text-decoration: none; text-align: center; text-transform: uppercase; letter-spacing: 0.02em; box-sizing: border-box; -webkit-text-size-adjust: none;">
+                                          WEB FORM
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+
+                                <!-- WHATSAPP -->
+                                <td class="button-cell-last" width="33.34%" valign="top" style="padding: 0 0 0 8px;">
+                                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                      <td align="center">
+                                        <a href="{{WHATSAPP_URL}}" target="_blank" class="button-pill" style="display: inline-block; width: 100%; max-width: 100%; padding: 11px 0; border: 2px solid #0D4F92; border-radius: 100px; background-color: #FFFFFF; font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 600; color: #0D4F92; text-decoration: none; text-align: center; text-transform: uppercase; letter-spacing: 0.02em; box-sizing: border-box; -webkit-text-size-adjust: none;">
+                                          WHATSAPP
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+
+                            <!--[if mso]>
+                                </td>
+                              </tr>
+                            </table>
+                            <![endif]-->
+
+                          </td>
+                        </tr>
+                      </table>
+
+                      <!-- ========================
+                           DIVIDER 2
+                           ======================== -->
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 48px;">
+                        <tr>
+                          <td style="border-top: 1px solid #E0E5EB; font-size: 0; line-height: 0;" height="1">&nbsp;</td>
+                        </tr>
+                      </table>
+
+                      <!-- ========================
+                           COMPANY LEGAL (inside card)
+                           ======================== -->
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
+                        <tr>
+                          <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #0D4F92; font-weight: 500; padding-bottom: 12px;">
+                            Aqua Libra Co is a trading name of Britvic Aqua Libra Co Limited (Registered in England No. 11309631) and registered office at 1 New Street, London, England, EC2M 4TP. Britvic Aqua Libra Co Ltd is a VAT registered company with number GB 292 4197 80.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #0D4F92; font-weight: 500;">
+                            Please consider the environment before printing this email.
+                          </td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- /MAIN WHITE CARD -->
+
+            <!-- ============================
+                 OUTER FOOTER (below card)
+                 ============================ -->
+            <tr>
+              <td class="footer-outer" style="padding: 20px 10px 40px 10px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td style="font-family: 'Sofia Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; line-height: 1.5; color: #0D4F92; font-weight: 500;">
+                      <p style="margin: 0 0 16px 0;">This email is sent on behalf of a member of the Britvic group of companies, whose holding company is Britvic plc, registered in England and Wales with number 5604923 and with registered office at Breakspear Park, Breakspear Way, Hemel Hempstead, Herts, HP2 4TZ. Any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error please notify us immediately and then delete the email and any copies of it. Please note that any views or opinions presented in this email are solely those of the author and do not necessarily represent those of Britvic plc and/or any of its subsidiaries. Finally, the recipient should check this email and any attachments for the presence of viruses. Britvic plc and/or any of its subsidiaries accepts no liability for any damage caused by any virus transmitted by this email.</p>
+                      <p style="margin: 0;">Britvic Soft Drinks Limited is a trading company of Britvic plc (Registered in England No. 517211) and registered office at Breakspear Park, Breakspear Way, Hemel Hempstead, Herts, HP2 4TZ. Britvic Soft Drinks Limited is a VAT registered company with number 772125245.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+          <!-- /EMAIL CONTAINER -->
+
+        </td>
+      </tr>
+    </table>
+    <!-- /OUTER WRAPPER -->
+
+  </div>
+</body>
+</html>
